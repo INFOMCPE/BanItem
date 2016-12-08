@@ -25,7 +25,7 @@ class Main extends PluginBase implements Listener {
     $p = $event->getPlayer();
     if($this->isBanned($event->getItem())) {
       if(!($p->hasPermission("banitem") || $p->hasPermission("banitem.bypass"))) {
-        $p->sendMessage("[BanItem] That item is banned.");
+        $p->sendMessage("[BanItem] Этот придмет заблокирыван");
         $event->setCancelled();
       }
     }
@@ -35,7 +35,7 @@ class Main extends PluginBase implements Listener {
     $p = $event->getPlayer();
     if($this->isBanned($event->getItem())) {
       if(!($p->hasPermission("banitem") || $p->hasPermission("banitem.bypass"))) {
-        $p->sendMessage("[BanItem] That item is banned.");
+        $p->sendMessage("[BanItem] Этот придмет заблокирыван.");
         $event->setCancelled();
       }
     }
@@ -46,7 +46,7 @@ class Main extends PluginBase implements Listener {
       $p = $event->getDamager();
       if($this->isBanned($p->getInventory()->getItemInHand())) {
         if(!($p->hasPermission("banitem") || $p->hasPermission("banitem.bypass"))) {
-          $p->sendMessage("[BanItem] That item is banned.");
+          $p->sendMessage("[BanItem] Этот придмет заблокирыван.");
           $event->setCancelled();
         }
       }
@@ -57,7 +57,7 @@ class Main extends PluginBase implements Listener {
     $p = $event->getPlayer();
     if($this->isBanned($event->getItem())) {
       if(!($p->hasPermission("banitem") || $p->hasPermission("banitem.bypass"))) {
-        $p->sendMessage("[BanItem] That item is banned.");
+        $p->sendMessage("[BanItem] Этот придмет заблокирован.");
         $event->setCancelled();
       }
     }
@@ -68,7 +68,7 @@ class Main extends PluginBase implements Listener {
       $p = $event->getEntity();
       if($this->isBanned($event->getBow())) {
         if(!($p->hasPermission("banitem") || $p->hasPermission("banitem.bypass"))) {
-          $p->sendMessage("[BanItem] That item is banned.");
+          $p->sendMessage("[BanItem] Этот придмет заблокирыван.");
           $event->setCancelled();
         }
       }
@@ -85,7 +85,7 @@ class Main extends PluginBase implements Listener {
       }
       $item = explode(":",$args[1]);
       if(!is_numeric($item[0]) || (isset($item[1]) && !is_numeric($item[1]))) {
-        $p->sendMessage("[BanItem] §cPlease only use an item's ID value, and damage if needed.");
+        $p->sendMessage("[BanItem] §cПожалуйста используйте только ID.");
         return true;
       }
     }
@@ -95,11 +95,11 @@ class Main extends PluginBase implements Listener {
         $i = $i . "#" . $item[1];
       }
       if(in_array($i,$this->items)) {
-        $p->sendMessage("[BanItem] §cThat item is already banned.");
+        $p->sendMessage("[BanItem] §cЭтот придмет уже заблокирован.");
       } else {
         array_push($this->items,$i);
         $this->saveItems();
-        $p->sendMessage("[BanItem] §aThe item " . str_replace("#",":",$i) . " has been banned.");
+        $p->sendMessage("[BanItem] §aПридмет:" . str_replace("#",":",$i) . " заблокирыван.");
       }
     } else if(strtolower($args[0]) == "unban") {
       $i = $item[0];
