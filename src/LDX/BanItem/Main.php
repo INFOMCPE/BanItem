@@ -107,14 +107,14 @@ class Main extends PluginBase implements Listener {
         $i = $i . "#" . $item[1];
       }
       if(!in_array($i,$this->items)) {
-        $p->sendMessage("[BanItem] §cThat item wasn't banned.");
+        $p->sendMessage("[BanItem] §cЭтот прндмет не был запрещен.");
       } else {
         array_splice($this->items,array_search($i,$this->items),1);
         $this->saveItems();
-        $p->sendMessage("[BanItem] §aThe item " . str_replace("#",":",$i) . " has been unbanned.");
+        $p->sendMessage("[BanItem] §aПредмет " . str_replace("#",":",$i) . " разблокирыван.");
       }
     } else if(strtolower($args[0]) == "list") {
-      $p->sendMessage("[BanItem] §eBanned item" . (count($this->items) == 1 ? "" : "s") . ": §f" . str_replace("#", ":", implode(", ", $this->items)) . (count($this->items) > 0 ? "." : "§7None."));
+      $p->sendMessage("[BanItem] §eЗаблокирываны придметы:" . (count($this->items) == 1 ? "" : "s") . ": §f" . str_replace("#", ":", implode(", ", $this->items)) . (count($this->items) > 0 ? "." : "§7Нету."));
     } else {
       return false;
     }
