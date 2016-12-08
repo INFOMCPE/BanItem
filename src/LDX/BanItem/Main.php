@@ -25,7 +25,7 @@ class Main extends PluginBase implements Listener {
     $p = $event->getPlayer();
     if($this->isBanned($event->getItem())) {
       if(!($p->hasPermission("banitem") || $p->hasPermission("banitem.bypass"))) {
-        $p->sendMessage("[BanItem] Этот придмет заблокирыван");
+        $p->sendPopup("[BanItem] Этот придмет заблокирыван");
         $event->setCancelled();
       }
     }
@@ -35,7 +35,7 @@ class Main extends PluginBase implements Listener {
     $p = $event->getPlayer();
     if($this->isBanned($event->getItem())) {
       if(!($p->hasPermission("banitem") || $p->hasPermission("banitem.bypass"))) {
-        $p->sendMessage("[BanItem] Этот придмет заблокирыван.");
+        $p->sendPopup("[BanItem] Этот придмет заблокирыван.");
         $event->setCancelled();
       }
     }
@@ -46,7 +46,7 @@ class Main extends PluginBase implements Listener {
       $p = $event->getDamager();
       if($this->isBanned($p->getInventory()->getItemInHand())) {
         if(!($p->hasPermission("banitem") || $p->hasPermission("banitem.bypass"))) {
-          $p->sendMessage("[BanItem] Этот придмет заблокирыван.");
+          $p->sendPopup("[BanItem] Этот придмет заблокирыван.");
           $event->setCancelled();
         }
       }
@@ -57,7 +57,7 @@ class Main extends PluginBase implements Listener {
     $p = $event->getPlayer();
     if($this->isBanned($event->getItem())) {
       if(!($p->hasPermission("banitem") || $p->hasPermission("banitem.bypass"))) {
-        $p->sendMessage("[BanItem] Этот придмет заблокирован.");
+        $p->sendPopup("[BanItem] Этот придмет заблокирован.");
         $event->setCancelled();
       }
     }
@@ -68,7 +68,7 @@ class Main extends PluginBase implements Listener {
       $p = $event->getEntity();
       if($this->isBanned($event->getBow())) {
         if(!($p->hasPermission("banitem") || $p->hasPermission("banitem.bypass"))) {
-          $p->sendMessage("[BanItem] Этот придмет заблокирыван.");
+          $p->sendPopup("[BanItem] Этот придмет заблокирыван.");
           $event->setCancelled();
         }
       }
